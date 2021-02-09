@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     buttons[i].text = "cardBack"
                     clicked--
                 }
-
+            }
                 if (clicked == 2) {
                     turnOver = true
                     if (buttons[i].text == buttons[lastClicked].text) {
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 } else if (clicked == 0) {
                     turnOver = false
                 }
-            }
+
         }
 
     }
