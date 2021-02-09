@@ -2,8 +2,8 @@ package com.eurico.project_memorygames
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.eurico.project_memorygames.R.drawable.*
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar as Toolbar?)
 
         val images: MutableList<Int> =
             mutableListOf(submarine, support, swatches, tablet, takeoff, target, submarine, support, swatches, tablet, takeoff, target)
