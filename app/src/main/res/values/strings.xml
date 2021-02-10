@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">memoryGame</string>
     <string name="action_settings">Settings</string>
+    <string name="app_name2">FirebaseDemo</string>
+    <string name="dont_have_account">Don\'t have account</string>
+    <string name="login">Login</string>
+    <string name="sign_up">SignUp</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>
