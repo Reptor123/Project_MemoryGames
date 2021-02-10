@@ -1,6 +1,7 @@
 package com.example.memorygame
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import com.example.memorygame.R.drawable.*
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         var clicked = 0
         var turnOver = false
         var lastClicked = -1
+        var check = 0
 
         images.shuffle()
         for(i in 0..11){
@@ -50,7 +52,20 @@ class MainActivity : AppCompatActivity() {
                         buttons[i].isClickable = false
                         buttons[lastClicked].isClickable = false
                         turnOver = false
+                        check++
                         clicked = 0
+                    }
+                    else if(buttons[i].text != buttons[lastClicked].text){
+                        clicked = 0
+                        Handler().postDelayed(
+                            {
+                                buttons[i].setBackgroundResource(cardBack)
+                                buttons[i].text = "cardBack"
+                                buttons[lastClicked].setBackgroundResource(cardBack)
+                                buttons[lastClicked].text = "cardBack"
+                            },
+                            500
+                        )
                     }
                 } else if (clicked == 0) {
                     turnOver = false
@@ -62,6 +77,7 @@ class MainActivity : AppCompatActivity() {
 
 }
 
+//test
 
 
 
