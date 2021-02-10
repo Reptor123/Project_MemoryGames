@@ -3,6 +3,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.widget.TextView
 import com.example.memorygame.R.drawable.*
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         var turnOver = false
         var lastClicked = -1
         var check = 0
+        var score = 0
+        val tv1: TextView = findViewById(R.id.score)
+        tv1.text = score.toString()
 
         images.shuffle()
         for(i in 0..11){
@@ -52,8 +56,19 @@ class MainActivity : AppCompatActivity() {
                         buttons[i].isClickable = false
                         buttons[lastClicked].isClickable = false
                         turnOver = false
-                        check++
+                        check+=2
+                        score+=100
                         clicked = 0
+                        tv1.text = score.toString()
+                        if(check == 12)
+                        {
+                            Handler().postDelayed(
+                                {
+                                    finish()
+                                    startActivity(intent)
+                                }, 1500
+                            )
+                        }
                     }
                     else if(buttons[i].text != buttons[lastClicked].text){
                         clicked = 0
@@ -66,6 +81,11 @@ class MainActivity : AppCompatActivity() {
                             },
                             500
                         )
+                        if(score-25 <= 0)
+                            score = 0
+                        else if(score-25 > 0)
+                            score-=25
+                        tv1.text = score.toString()
                     }
                 } else if (clicked == 0) {
                     turnOver = false
@@ -74,10 +94,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
 }
 
-//test
 
 
 
